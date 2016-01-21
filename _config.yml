@@ -1,7 +1,8 @@
 markdown: rdiscount
 
-title: not hipster
+title: OCaml compiler internal
 
-name: bezoomyville
-url: https://tech.bezoomnyvile.com
-description: technical blog posts
+name: OCaml compiler internal
+url: https://objmagic.ml/4023
+baseurl: "4023"
+description: OCaml compiler internal
