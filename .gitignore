@@ -2782,3 +2782,7 @@
 /yacc/ocamlyacc.exe
 /yacc/version.h
 /yacc/.gdb_history
+
+# /book/
+/book/pollen-cache
+/book/*.html

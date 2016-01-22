@@ -1,0 +1,7 @@
+#lang pollen
+What should we talk about
+-------------------------
+
+- Lexer, parser
+- Typechecker
+- Code generation...
