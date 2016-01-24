@@ -1,0 +1,84 @@
+;; This buffer is for notes you don't want to save, and for Lisp evaluation.
+;; If you want to create a file, visit that file with C-x C-f,
+;; then enter the text in that file's own buffer.
+
+# Introduction
+
+Why this book, intended audience, content overview.
+Compilation pipeline to motivate organisation.
+
+# Parser
+
+## Lexer / Parser
+
+Design, subtleties in the API
+
+## Parsetree
+
+Description, invariants ...
+
+## Helpers for developers
+
+How to work with parsetree
+
+## Pparse for preprocessors
+
+Alternative entry points & preprocessors.
+
+
+# Typechecker
+
+## Organization / overview
+
+- Support tools (Ident, Path, Env).
+- Common interface : from Parsetree to Types & Typedtree
+- Typechecking of constructs (terms, types, modules, ...)
+- Specific algorithms : Btypes, Ctypes, ...
+
+## Topical guides
+
+The idea is to start from a piece of OCaml code, and explain how it is typechecked. Then repeat with a more complex pieces.
+By introducing features one after the other, we might mimick the structure of TAPL.
+Which features and which order is unclear to me yet
+
+### Core ML
+
+The subset of the language that is principal, pure HM inference.
+The level algorithm can be introduced here.
+
+### Well-formedness of types
+
+How to turn a type annotation in the inner representation of the typechecker.
+How to deal with type declarations.
+
+### Module system basics
+
+Qualified path
+Tracking scopes and escapes, substitution
+
+### TODO: value restriction, subtyping of terms, subtyping of modules, principality checking, row polymorphisms: variant & object system, class system, typechecking with constraints, GADTS
+
+## Reference
+
+META META IDEA: a tracing tool could help understanding behavior of ocaml programs... for a given action at runtime, which modules are involved 
+
+Rather than following a trace, follow the source code. Annotate and explain subtleties, link to topics when relevant.
+
+# Code generation
+
+Lambda intermediate language
+Bytecode vs Native
+
+# Runtime system
+
+Uniform representation of values
+GC
+Global lock
+Primitives
+Debug information / runtime state
+
+# Driver
+
+Toplevel
+the compilers
+the linker
