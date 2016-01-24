@@ -1,5 +1,5 @@
 ---
-layout: deplay
+layout: post
 title: Introduction
 ---
 
