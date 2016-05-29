@@ -83,7 +83,7 @@
       var link = svg.append("g").selectAll(".link"),
           node = svg.append("g").selectAll(".node");
 
-      d3.json("https://gist.githubusercontent.com/marklrh/634f077d63130f88d44d/raw/3fd71def9a1ce559675f2ca47f8b03d35a491cae/data.json", function(error, classes) {
+      d3.json("https://gist.githubusercontent.com/objmagic/634f077d63130f88d44d/raw/3fd71def9a1ce559675f2ca47f8b03d35a491cae/data.json", function(error, classes) {
         if (error) throw error;
 
         var nodes = cluster.nodes(packageHierarchy(classes)),
