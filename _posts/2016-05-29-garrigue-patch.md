@@ -1,6 +1,6 @@
 ---
-layout:post
-title: Patches by garrigue
+layout: post
+title: Patches by Garrigue
 ---
 
 commit [fc4ddcb599e080262749c645d87840a08e8584e4

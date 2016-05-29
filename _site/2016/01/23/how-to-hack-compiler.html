@@ -1,0 +1,64 @@
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <title>Working with compiler</title>
+        <link rel="stylesheet" href="/stylesheets/simple.css" type="text/css" />
+      </head>
+          <body>
+            <div id="content">
+              <h1>Working with compiler</h1>
+              <h5>January 23, 2016</h5>
+              <h3 id="building-and-testing">Building and testing</h3>
+
+<p>Learning how to build compiler is the first step of studying OCaml compiler
+source code. When developing compiler locally, we may need to build and try out different compilers. So, we suggest using OPAM together with Gabriel Scherer’s
+script to build and test compilers.</p>
+
+<ol>
+  <li>
+    <p>First, install Gabriel Scherer’s <a href="https://github.com/gasche/opam-compiler-conf">opam-compiler-conf</a> script.
+ Make sure</p>
+  </li>
+  <li>
+    <p>Do the following to compile and install your experimental compiler. Switch to new compiler environment accordingly</p>
+  </li>
+</ol>
+
+<p><code class="highlighter-rouge">
+  $ opam compiler-conf configure
+  $ make -j world.opt
+  $ opam compiler-conf install
+ </code></p>
+
+<p>Note that enabling parallel building with <code class="highlighter-rouge">-j</code> flag can make building
+  become unstable and fail.</p>
+
+<ol>
+  <li>
+    <p>Do the following to test your compiler after some change</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>$ make -j world.opt
+$ opam compiler-conf reinstall
+</code></pre>
+    </div>
+
+    <p>Note that one may need to do <code class="highlighter-rouge">make clean</code> to clear all compiled interface to make sure building succeed.</p>
+  </li>
+</ol>
+
+<h3 id="using-merlin-when-reading-source-code">Using Merlin when reading source code</h3>
+
+<p>When studying compiler source code, it is very convenient to have Merlin enabled. One can
+easily get the type of variables and functions, or jump to the definition site of a function.
+To make sure Merlin can understand your compiler source code, we need to install Merlin with the compiler you built. After installing your own compiler according to steps above, we switch to the new compiler using <code class="highlighter-rouge">opam switch</code> and install Merlin.</p>
+
+<p>Note that using Merlin to read compiler source code does not work all the time. Strange errors may happen,
+mostly because of digest mismatch. Digest mismatch happens when one makes changes in the interface since
+the last compilation. The reason is that merlin is using the switch managed standard libraries, while
+your local compiler is built against its own set of libraries. The fix is to change the path of standard library
+library to source code’s <code class="highlighter-rouge">stdlib/</code> (<code class="highlighter-rouge">export OCAMLSTDLIB=...</code>).</p>
+
+            </div>
+          </body>
+      </html>
